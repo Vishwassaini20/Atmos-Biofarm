@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmBuddy - Crop Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>FarmBuddy - Crop Recommendation</h2>
+
+    <form action="/predict" method="POST">
+        <label for="N">Nitrogen (N):</label>
+        <input type="number" step="any" id="N" name="N" required>
+
+        <label for="P">Phosphorus (P):</label>
+        <input type="number" step="any" id="P" name="P" required>
+
+        <label for="K">Potassium (K):</label>
+        <input type="number" step="any" id="K" name="K" required>
+
+        <label for="temperature">Temperature:</label>
+        <input type="number" step="any" id="temperature" name="temperature" required>
+
+        <label for="humidity">Humidity:</label>
+        <input type="number" step="any" id="humidity" name="humidity" required>
+
+        <label for="ph">Soil pH:</label>
+        <input type="number" step="any" id="ph" name="ph" required>
+
+        <label for="rainfall">Rainfall:</label>
+        <input type="number" step="any" id="rainfall" name="rainfall" required>
+
+        <button type="submit">Get Crop Recommendation</button>
+    </form>
+
+    {% if prediction %}
+    <h3>Recommended Crop: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
